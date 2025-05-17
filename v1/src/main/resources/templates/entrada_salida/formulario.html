@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Formulario Entrada-Salida</title></head>
+<body>
+<h1 th:text="${entrada_salida.id != null ? 'Editar EntradaSalida' : 'Registrar EntradaSalida'}"></h1>
+<form th:action="@{/entradasalida/guardar}" th:object="${entrada_salida}" method="post">
+
+
+    <input type="hidden" th:field="*{id}" />
+    <label>Entrada:</label>
+    <input type="date" th:field="*{entrada}" required/><br/>
+    <label>Salida:</label>
+    <input type="date" th:field="*{salida}" required/><br/>
+    <label>Vehículo</label>
+    <input type="text" th:field="*{vehiculo}" required/><br/>
+    <label>Celda:</label>
+    <input type="text" th:field="*{celda}" required/><br/>
+    <label>Estado:</label>
+    <input type="text" th:field="*{estado}" required/><br/>
+    
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/entradasalida}">Volver</a>
+</body>
+</html>

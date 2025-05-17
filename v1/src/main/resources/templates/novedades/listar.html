@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Novedades</title>
+</head>
+<body>
+<h1>Novedades</h1>
+<a th:href="@{/novedades/nuevo}">Registrar nueva novedad</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+            <th>Vehículo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="novedad : ${novedades}">
+            <td th:text="${novedad.id}">ID</td>
+            <td th:text="${novedad.descripcion}">Descripcion</td>
+            <td th:text="${novedad.fecha}">Fecha</td>
+            <td th:text="${novedad.vehiculo.id}">Vehículo</td>
+
+            <td>
+                <a th:href="@{'/novedades/editar/' + ${novedad.id}}">Editar</a> |
+                <a th:href="@{'/novedades/eliminar/' + ${novedad.id}}"
+                   onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

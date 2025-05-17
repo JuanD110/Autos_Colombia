@@ -1,20 +1,52 @@
 package com.autos_colombia.v1.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.autos_colombia.v1.model.Celda;
 import com.autos_colombia.v1.service.CeldaService;
 
-@RestController @RequestMapping("/celdas")
+@Controller
+@RequestMapping("/celdas")
 public class CeldaController {
-    @Autowired private CeldaService service;
-    @PostMapping public Celda save(@RequestBody Celda c) { return service.save(c); }
-    @GetMapping public List<Celda> list() { return service.list(); }
+
+    @Autowired
+    private CeldaService celdaService;
+
+    @GetMapping
+    public String listarCeldas(Model model) {
+        model.addAttribute("celdas", celdaService.listarCeldas());
+        return "celdas/listar";
+    }
+
+    @GetMapping("/nuevo")
+    public String mostrarFormularioNuevoCelda(Model model) {
+        model.addAttribute("celda", new Celda());
+        return "celdas/formulario";
+    }
+
+    @PostMapping("/guardar")
+    public String guardarCelda(@ModelAttribute("celda") Celda celda) {
+        celdaService.guardarCelda(celda);
+        return "redirect:/celdas";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioEditarCelda(@PathVariable Long id, Model model) {
+        Celda celda = celdaService.obtenerCeldaPorId(id);
+        model.addAttribute("celda", celda);
+        return "celdas/formulario";
+    }
+
+    @GetMapping("/eliminar/{id}")
+    public String eliminarCelda(@PathVariable Long id) {
+        celdaService.eliminarCelda(id);
+        return "redirect:/celdas";
+    }
 }

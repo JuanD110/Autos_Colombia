@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Historial Entrada-Salida</title>
+</head>
+<body>
+<h1>Entrada-Salida</h1>
+<a th:href="@{/entrada_salida/nuevo}">Registrar nueva entrada-salida</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Entrada</th>
+            <th>Salida</th>
+            <th>Vehículo</th>
+            <th>Celda</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="entrada_salida : ${entrada_salida}">
+            <td th:text="${entrada_salida.id}">ID</td>
+            <td th:text="${entrada_salida.entrada}">Entrada</td>
+            <td th:text="${entrada_salida.salida}">Salida</td>
+            <td th:text="${entrada_salida.vehiculo.id}">Vehículo</td>
+            <td th:text="${entrada_salida.celda.numeroCelda}">Celda</td>
+            <td th:text="${entrada_salida.estado}">Estado</td>
+
+            <td>
+                <a th:href="@{'/entradasalida/editar/' + ${entrada_salida.id}}">Editar</a> |
+                <a th:href="@{'/entradasalida/eliminar/' + ${entrada_salida.id}}"
+                   onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

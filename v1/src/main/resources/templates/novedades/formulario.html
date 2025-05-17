@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Formulario Novedad</title></head>
+<body>
+<h1 th:text="${novedad.id != null ? 'Editar Novedad' : 'Registrar Novedad'}"></h1>
+<form th:action="@{/novedades/guardar}" th:object="${novedad}" method="post">
+
+
+    <input type="hidden" th:field="*{id}" />
+    <label>Descripción:</label>
+    <input type="text" th:field="*{descripcion}" required/><br/>
+    <label>Fecha:</label>
+    <input type="date" th:field="*{fecha}" required/><br/>
+    <label>Vehículo:</label>
+    <input type="text" th:field="*{vehiculo}" required/><br/>
+    
+    <button type="submit">Guardar</button>
+</form>
+<a th:href="@{/novedades}">Volver</a>
+</body>
+</html>

@@ -20,4 +20,42 @@ public class EntradaSalida {
     @ManyToOne
     private Celda celda;
     private String estado;
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public LocalDateTime getEntrada() {
+        return entrada;
+    }
+    public void setEntrada(LocalDateTime entrada) {
+        this.entrada = entrada;
+    }
+    public LocalDateTime getSalida() {
+        return salida;
+    }
+    public void setSalida(LocalDateTime salida) {
+        this.salida = salida;
+    }
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+    public Celda getCelda() {
+        return celda;
+    }
+    public void setCelda(Celda celda) {
+        this.celda = celda;
+    }
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    
 }
