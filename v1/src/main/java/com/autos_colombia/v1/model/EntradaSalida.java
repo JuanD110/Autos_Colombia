@@ -1,9 +1,9 @@
 package com.autos_colombia.v1.model;
 
-import java.time.LocalDateTime;
-
+import java.time.LocalDate;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -11,10 +11,12 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "entrada_salida")
 public class EntradaSalida {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDateTime entrada;
-    private LocalDateTime salida;
+
+    private LocalDate entrada;
+    private LocalDate salida;
     @ManyToOne
     private Vehiculo vehiculo;
     @ManyToOne
@@ -26,16 +28,16 @@ public class EntradaSalida {
     public void setId(Long id) {
         this.id = id;
     }
-    public LocalDateTime getEntrada() {
+    public LocalDate getEntrada() {
         return entrada;
     }
-    public void setEntrada(LocalDateTime entrada) {
+    public void setEntrada(LocalDate entrada) {
         this.entrada = entrada;
     }
-    public LocalDateTime getSalida() {
+    public LocalDate getSalida() {
         return salida;
     }
-    public void setSalida(LocalDateTime salida) {
+    public void setSalida(LocalDate salida) {
         this.salida = salida;
     }
     public Vehiculo getVehiculo() {

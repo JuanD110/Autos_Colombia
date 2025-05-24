@@ -6,18 +6,27 @@
 </head>
 <body>
     <h1>Registro de Celda</h1>
-    <form th:action="@{/celdas}" th:object="${celda}" method="post">
+    <form th:action="@{/celdas/guardar}" th:object="${celda}" method="post">
         <input type="hidden" th:field="*{id}" />
+        
         <label>Estado:</label>
-        <input type="text" th:field="*{estado}" required><br><br>
+        <select th:field="*{estado}" required>
+            <option value="Disponible">Disponible</option>
+            <option value="Ocupado">Ocupado</option>
+        </select><br><br>
 
         <label>Tipo:</label>
-        <input type="text" th:field="*{tipo}" required><br><br>
+        <select th:field="*{tipo}" required>
+            <option value="Carro">Carro</option>
+            <option value="Moto">Moto</option>
+        </select><br><br>
 
         <label>Número Celda:</label>
-        <input type="checkbox" th:field="*{numeroCelda}"><br><br>
+        <input type="text" th:field="*{numeroCelda}"><br><br>
 
         <button type="submit">Guardar</button>
     </form>
+    <a th:href="@{/celdas}">Volver</a>
 </body>
 </html>
+

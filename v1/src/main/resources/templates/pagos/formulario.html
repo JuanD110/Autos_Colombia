@@ -12,7 +12,10 @@
     <label>Valor:</label>
     <input type="number" step="0.01" th:field="*{valor}" required/><br/>
     <label>Método Pago:</label>
-    <input type="text" th:field="*{metodoPago}" required/><br/>
+        <select th:field="*{metodoPago}" required>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Transferencia">Transferencia</option>
+        </select><br><br>
     
     <button type="submit">Guardar</button>
 </form>

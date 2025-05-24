@@ -2,6 +2,7 @@ package com.autos_colombia.v1.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,8 +10,9 @@ import jakarta.persistence.Table;
 @Table(name = "celda")
 public class Celda {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String estado;
     private String tipo;
     private String numeroCelda;

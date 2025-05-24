@@ -12,7 +12,14 @@
     <label>Fecha:</label>
     <input type="date" th:field="*{fecha}" required/><br/>
     <label>Vehículo:</label>
-    <input type="text" th:field="*{vehiculo}" required/><br/>
+<select th:field="*{vehiculo}" required>
+    <option value="" disabled selected>Seleccione un vehículo</option>
+    <option th:each="vehiculo : ${vehiculos}"
+            th:value="${vehiculo.id}"
+            th:text="${vehiculo.id + ' - ' + vehiculo.placa}">
+    </option>
+</select><br/>
+
     
     <button type="submit">Guardar</button>
 </form>
