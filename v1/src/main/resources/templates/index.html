@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sistema de Gestión</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1a73e8;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card a {
+      display: block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .card a:hover {
+      background-color: #155ac6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Autos colombia</h1>
+    <p>Seleccione una de las opciones para comenzar</p>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Gestión de Usuarios</h2>
+      <a href="/usuarios">Entrar</a>
+    </div>
+
+    <div class="card">
+      <h2>Gestión de Celdas</h2>
+      <a href="/celdas">Entrar</a>
+    </div>
+
+    <div class="card">
+      <h2>Entrada / Salida</h2>
+      <a href="/entradasalida">Entrar</a>
+    </div>
+
+    <div class="card">
+      <h2>Gestión de Pagos</h2>
+      <a href="/pagos">Entrar</a>
+    </div>
+
+    <div class="card">
+      <h2>Gestión de Vehículos</h2>
+      <a href="/vehiculos">Entrar</a>
+    </div>
+  </main>
+</body>
+</html>
